@@ -1,0 +1,11 @@
+body{
+    background-image:radial-gradient(red,orange,purple,yellow,purple,green,red,blue,yellow,indigo,violet);
+    font-family:'Comic Sans MS', 'Comic Sans', cursive; 
+}
+h1 {
+    text-align:center;
+    margin-top: 25px;
+}
+h1 span{
+    background-color:yellow;
+}
