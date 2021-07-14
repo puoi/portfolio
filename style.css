@@ -10,3 +10,18 @@ body{
     background-color:yellow;
     border:solid 5px;
 }
+.bar{
+    width:auto;
+    height: 20px;
+    text-align: center;
+    background-color: yellow;
+}
+.bar-text{
+    color:black;
+    margin-left: 20px;
+    display:inline;
+}
+.bar-text a:link{
+    text-decoration: none;
+    color:black;
+}
