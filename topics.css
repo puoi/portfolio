@@ -28,3 +28,7 @@ body{
     text-decoration: none;
     color:black;
 }
+.bar-text a:visited{
+    text-decoration: none;
+    color:black;
+}
