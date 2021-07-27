@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 </head>
-<body>
-    <a target="blank" href="https://www.youtube.com/watch?v=-lEfBU3ikN4"><img class="title" src="https://i.imgur.com/07Kpy5B.png"></a>
-<div class="bar" >
-<p class="bar-text home"><a href="https://puoi.github.io/portfolio/">house</a></p>
-<p class="bar-text ME"><a href="https://puoi.github.io/portfolio/contact.html">who is me?</a></p>
-<p class="bar-text contact"><a href="https://puoi.github.io/portfolio/about.html">REACH.ME</a></p>
-<p class="bar-text contact"><a href="https://puoi.github.io/portfolio/projects.html">sick projects</a></p>
-<p class="bar-text contact"><a href="https://puoi.github.io/portfolio/topics.html">Special Topics Presentation</a></p>
-    </div>
-
+<body >
+    <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a class="bar-text home" href="https://puoi.github.io/portfolio/">house</a>
+      <a class="bar-text ME" href="https://puoi.github.io/portfolio/contact.html">who is me?</a>
+      <a class="bar-text contact" href="https://puoi.github.io/portfolio/about.html">REACH.ME</a>
+      <a class="bar-text sick" href="https://puoi.github.io/portfolio/projects.html">sick projects</a>
+      <a class="bar-text pesi" href="https://puoi.github.io/portfolio/topics.html">Special Topics</a>
+      </div>
+          <span class="bars" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+      <div id="main">
+        <a target="blank" href="https://www.youtube.com/watch?v=-lEfBU3ikN4"><h1 class="title">PAUL'S SICK PORTFOLIO</h1></a>
+      
+      </div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
+      
 </body>
 </html>

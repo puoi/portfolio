@@ -1,16 +1,96 @@
-body{
-    background-image:radial-gradient(red,orange,purple,yellow,purple,green,red,blue,yellow,indigo,violet);
-    font-family:'Comic Sans MS', 'Comic Sans', cursive; 
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+.title {
+    text-align: center;
+    text-decoration: none;
 }
-.title{
-    margin-top: 20px;
-    margin-left:auto;
-    margin-right:auto;
-    width:80%;
-    display:block;
-    background-color:yellow;
-    border:solid 5px;
+h1{
+    color: transparent;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50px;
+    font-family: "Poppins",sans-serif;
+    font-size: 50px;
+    letter-spacing: 0.05em;
+    background: linear-gradient(
+        #fd004c 16.7%,
+        #fe9000 16.7%,
+        #fe9000 33.4%,
+        #fff020 33.4%,
+        #fff020 50.1%,
+        #3edf4b 50.1%,
+        #3edf4b 66.8%,
+        #3363ff 66.8%,
+        #3363ff 83.5%,
+        #b102b7 83.5%
+    );
+    -webkit-text-stroke: 0.04em #ffffff;
+    -webkit-background-clip: text;
+            background-clip: text;
+    line-height: 1.1em;
+    animation: rainbow 100s linear infinite;
 }
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@keyframes rainbow{
+    100%{
+        background-position: 0 30em;
+    }
+}
+.bars{
+    margin-left:30px;
+    margin-right:20px;
+    background-color: yellow;
+    border: solid 5px ;
+    border-radius: 90% ;
+    }
 .bar{
     width:auto;
     height: 30px;
@@ -22,8 +102,21 @@ body{
     color:black;
     margin-left: 20px;
     display:inline;
-    border: solid 5px black;
+    border: solid 5px red;
 }
+.ME{
+    border: solid 5px orange;
+}
+.contact{
+    border: solid 5px yellow;
+}
+.sick{
+    border: solid 5px green;
+}
+.pesi{
+    border: solid 5px blue;
+}
+
 .bar-text a:link{
     text-decoration: none;
     color:black;
@@ -31,4 +124,25 @@ body{
 .bar-text a:visited{
     text-decoration: none;
     color:black;
+}
+#hom{
+    text-align: center;
+}
+#hoim{
+    width:50%;
+}
+body{
+    margin-top:20px;
+    background-image: url(https://i.imgur.com/IbBlIFv.jpg);
+    font-family: 'Comics Sans MS','Comic Sans',cursive;    
+    background-color: #050310;
+}
+h2{
+    background-color: #fff020;
+width:50%;
+text-align: center;
+font-size: large;
+}
+.headd{
+    margin-left:32%;
 }
