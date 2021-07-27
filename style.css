@@ -90,6 +90,7 @@ h1{
     background-color: yellow;
     border: solid 5px ;
     border-radius: 90% ;
+    padding:6px;
     }
 .bar{
     width:auto;
@@ -97,12 +98,14 @@ h1{
     margin-top: 20px;
     text-align: center;
     background-color: yellow;
+    
 }
 .bar-text{
     color:black;
     margin-left: 20px;
     display:inline;
     border: solid 5px red;
+    
 }
 .ME{
     border: solid 5px orange;
@@ -132,7 +135,7 @@ h1{
     width:50%;
 }
 body{
-    margin-top:20px;
+    margin-top:30px;
     background-image: url(https://i.imgur.com/IbBlIFv.jpg);
     font-family: 'Comics Sans MS','Comic Sans',cursive;    
     background-color: #050310;
@@ -142,6 +145,7 @@ h2{
 width:50%;
 text-align: center;
 font-size: large;
+padding:5px;
 }
 .headd{
     margin-left:32%;
@@ -156,7 +160,8 @@ font-size: large;
 }
 .abcon {
 text-align: center;
-font-size:24px;
+font-size:20px;
+
 }
 .abcon span{
 background-color: #fff020;
@@ -189,4 +194,122 @@ animation: rainbow 100s linear infinite;
 }
 .slides span{
     background-color: #fff020;
+}
+
+  .all {
+    margin-top: 40px;
+    text-align:center;
+}
+
+.what {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #f1f1f1
+    
+}
+.container {
+    margin: 0 auto;
+    width: 400px;
+}
+
+#game {
+    width: 305px;
+    height: 305px;
+    border: 1px solid #dadada;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#game > li {
+    list-style: none;
+    float: left;
+    overflow: hidden;
+    text-decoration:none;
+    width: 100px;
+    height: 100px;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 20px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#game > li.x {
+    font-size: 30px;
+    color: black;
+}
+
+#game > li.o {
+    font-size: 30px;
+    color: black;
+}
+
+
+
+#game > li:active {
+    width: 100px;
+    height: 100px;
+    border: 0;
+}
+
+
+#whos-turn > span,
+#game-messages > span {
+    display: none;
+}
+
+#whos-turn.x span.x,
+#whos-turn.o span.o, 
+#game-messages.player-x-win > span.player-x-win, 
+#game-messages.player-o-win > span.player-o-win,
+#game-messages.draw > span.draw {
+    display: block;
+    margin-top: 10px;
+}
+
+#reset-game {
+    text-align: center;
+        border: none;
+        padding: 0.6em 1.2em;
+        background: #000080;
+        color: white;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+}
+#calc{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#text2 {
+    text-align: center;
+    font-size: 20px;
+    padding:5px;
+}
+#text2 span{
+    text-align: center;
+    background-color: yellow;
+    font-size: 20px;
+}
+#text3{
+    text-align: center;
+    background-color: yellow;
+    font-size: 30px;
+    padding:5px;
+}
+#mug{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
 }

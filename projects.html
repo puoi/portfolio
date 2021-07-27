@@ -15,10 +15,195 @@
           <span class="bars" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
       <div id="main">
         <a target="blank" href="https://www.youtube.com/watch?v=-lEfBU3ikN4"><h1 class="title">PAUL'S SICK PORTFOLIO</h1></a>
-      
       </div>
-      
-      <script>
+<p id="text2">These are probably my two favorite projects we did in the five weeks of Catapult.</p>
+      <div class="all">
+        <div class="container">
+                    <ul id="game">
+                        <!-- first row -->
+                        <li data-pos="0,0"></li>
+                        <li data-pos="0,1"></li>
+                        <li data-pos="0,2"></li>
+                        <!-- second row -->
+                        <li data-pos="1,0"></li>
+                        <li data-pos="1,1"></li>
+                        <li data-pos="1,2"></li>
+                        <!-- third row -->
+                        <li data-pos="2,0"></li>
+                        <li data-pos="2,1"></li> 
+                        <li data-pos="2,2"></li>
+                    </ul>
+                    
+                    <button id="reset-game">Reset Game</button>
+                    
+                    <!-- Game Messages -->
+                    <div class="slides">
+                    <div id="game-messages">
+                        <span class="player-x-win">Player One Wins!</span>
+                        <span class="player-o-win">Player Two Win!</span>
+                        <span class="draw">Draw Game!</span>
+                    </div>
+                    
+                        <h3><span>Score Card</span></h3>
+                        <div id="score">
+                            <span>Player 1: <span id="player-one-score">0</span></span> <br />
+                            <span>Player 2: <span id="player-two-score">0</span></span> <br />
+                        </div>
+                        </div>
+                        </div>
+                    <a target="blank" href="https://popcode.org/?snapshot=d22690fe-ed7b-40b2-97a2-9f9d585c8b0c"><img id="calc" src="https://i.imgur.com/HWkUUBu.png"></a>
+<script>
+                        (function Game() {
+    // Elements
+    var game = document.getElementById('game');
+    var boxes = document.querySelectorAll('li');
+    var resetGame = document.getElementById('reset-game');
+    var turnDisplay = document.getElementById('whos-turn');
+    var gameMessages = document.getElementById('game-messages');
+    var playerOneScoreCard = document.getElementById('player-one-score');
+    var playerTwoScoreCard = document.getElementById('player-two-score');
+    
+    // Vars
+    var context = { 'player1' : 'x', 'player2' : 'o' };
+    var board = [];
+    
+    var playerOneScore = 0;
+    var playerTwoScore = 0;
+    
+    var turns;
+    var currentContext;
+    
+    // Constructor
+    var init = function() {
+        turns = 0;
+        
+        // Get current context
+        currentContext = computeContext();
+        
+        // Setup 3 x 3 board 
+        board[0] = new Array(3);
+        board[1] = new Array(3);
+        board[2] = new Array(3);
+        
+        // bind events
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].addEventListener('click', clickHandler, false);
+        }
+        
+        resetGame.addEventListener('click', resetGameHandler, false);
+    }
+    
+    //Keeps track of player's turn
+    var computeContext = function() {
+        return (turns % 2 == 0) ? context.player1 : context.player2;
+    }
+    
+    // Bind the dom element to the click callback
+    var clickHandler = function() {
+        this.removeEventListener('click', clickHandler);
+        
+        this.className = currentContext;
+        this.innerHTML = currentContext;
+        
+        var pos = this.getAttribute('data-pos').split(',');
+        board[pos[0]][pos[1]] = computeContext() == 'x' ? 1 : 0;
+        
+        if(checkStatus()) {
+            gameWon();
+        }
+        
+        turns++;
+        currentContext = computeContext();
+        turnDisplay.className = currentContext;
+    }
+    
+    
+    // Check to see if player has won
+    var checkStatus = function() {
+        var used_boxes = 0;
+        
+        for(var rows = 0; rows < board.length; rows++ ) {
+            var row_total = 0;
+            var column_total = 0;
+            
+            for(var columns = 0; columns < board[rows].length; columns++) {
+                row_total += board[rows][columns];
+                column_total += board[columns][rows];
+                
+                if(typeof board[rows][columns] !== "undefined") {
+                    used_boxes++;
+                }
+            }
+            
+            // Winning combination for diagonal scenario [0,4,8], [2,4,6]
+            var diagonal_tl_br = board[0][0] + board[1][1] + board[2][2]; // diagonal top left to bottom right
+            var diagonal_tr_bl = board[0][2] + board[1][1] + board[2][0]; // diagonal top right bottom left
+            
+            if(diagonal_tl_br == 0 || diagonal_tr_bl == 0 || diagonal_tl_br == 3 || diagonal_tr_bl == 3) {
+                return true;
+            }
+            
+            // Winning combination for row [0,1,2], [3,4,5], [6,7,8]
+            // Winning combination for column [0,3,6], [1,4,7], [2,5,8]
+            // Only way to win is if the total is 0 or if the total is 3. X are worth 1 point and O are worth 0 points
+            if(row_total == 0 || column_total == 0 || row_total == 3 || column_total == 3) {
+                return true;
+            }
+            
+            // if all boxes are full - Draw!!!
+            if(used_boxes == 9) {
+                gameDraw();
+            }
+        }
+    }
+    var gameWon = function() {
+        clearEvents();
+        
+        // show game won message
+        gameMessages.className = 'player-' + computeContext() + '-win';
+        
+        // update the player score
+        switch(computeContext()) {
+            case 'x':
+                playerOneScoreCard.innerHTML = ++playerOneScore;
+                break;
+            case 'o':
+                playerTwoScoreCard.innerHTML = ++playerTwoScore;
+        }
+    }
+    // Tells user when game is a draw.
+    var gameDraw = function() {
+        gameMessages.className = 'draw';
+        clearEvents();
+    }
+    
+    // Stops user from clicking empty cells after game is over
+    var clearEvents = function() {
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].removeEventListener('click', clickHandler);
+        }
+    }
+    // Reset game to play again
+    var resetGameHandler = function() {
+        clearEvents();
+        init();
+        
+        // Go over all the li nodes and remove className of either x,o
+        // clear out innerHTML
+        for(var i = 0; i < boxes.length; i++) {
+            boxes[i].className = '';
+            boxes[i].innerHTML = '';
+        }
+        
+        // Change Who's turn class back to player1
+        turnDisplay.className = currentContext;
+        gameMessages.className = '';
+    }
+    
+    game && init();
+})();
+</script>
+<script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
@@ -29,6 +214,14 @@
         document.getElementById("main").style.marginLeft= "0";
       }
       </script>
-      
-</body>
+      <p id="text3">CAD MODELS</p>
+<p id="text2"><span>Welp. I would've shown off my CAD models if I still had acces to them, but for now this nice mug should suffice.</span></p>
+<img id="mug" src="https://i.imgur.com/8pfncCa.png">
+<p id="text3">Science Olympiad</p>
+<p id="text2"><span>This is a little outside of Catapult by a couple months.<br>But, I still want to show it here.<br>This is my temperature and Voltage Output measurer.<br>powered by an Arduino that I made, and was sort of my first real tough coding challenge.</span></p>
+<img id="mug" src="https://i.imgur.com/CpIa21Z.jpg">
+<p id="text2"><span>And this is the sick code I wrote for it in C++/C.</span></p>
+<img id="mug" src="https://i.imgur.com/CK9frId.png">
+        </div>
+        </body>
 </html>
