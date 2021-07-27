@@ -108,13 +108,13 @@ h1{
     border: solid 5px orange;
 }
 .contact{
-    border: solid 5px yellow;
+    border: solid 5px blue;
 }
 .sick{
-    border: solid 5px green;
+    border: solid 5px yellow;
 }
 .pesi{
-    border: solid 5px blue;
+    border: solid 5px green;
 }
 
 .bar-text a:link{
@@ -148,4 +148,39 @@ font-size: large;
 }
 .abimg{
     text-align: center;
+}
+#me{
+    border:solid 20px #964B00;
+    width:25%;
+    border-radius:50%
+}
+.abcon {
+text-align: center;
+font-size:24px;
+}
+.abcon span{
+background-color: #fff020;
+}
+.logos{
+    margin-top: 50px;
+text-align: center;
+}
+#git{
+width:20%;
+text-align: center;
+animation: rainbow 100s linear infinite;
+background-color: transparent;
+}
+#gm{
+width:20%;
+text-align: center;
+background-color: transparent;
+animation: rainbow 100s linear infinite;
+}
+#conr{
+    text-align: center;
+    font-size: medium;
+}
+#conr span{
+    background-color: #fff020;
 }
