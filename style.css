@@ -184,3 +184,9 @@ animation: rainbow 100s linear infinite;
 #conr span{
     background-color: #fff020;
 }
+.slides{
+    text-align: center;
+}
+.slides span{
+    background-color: #fff020;
+}
